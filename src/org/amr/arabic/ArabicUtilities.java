@@ -1,176 +1,195 @@
 package org.amr.arabic;
 
 /*
- *	Date : 14th of February 2009
+ *	Date : 8th of June 2009
  *	the class is Arabic string reshaper Utilities, this class is targeting Android platform
  *
  * 	By		: Amr Ismail Gawish
  *  E-Mail 	: amr.gawish@gmail.com
  *  Web		: http://www.amr-gawish.com
+ *  
+ *  Updated : 8th of June 2009
+ *  Adding comments and Announcing Open Source
  * */
-
 import java.util.ArrayList;
 
+/**
+ * This class is the main class that is responsible for Reshaping Arabic Sentences and Text
+ * Utilities Class to make it easier to deal with Arabic Reshaper Class
+ * Wrapper for Arabic Reshaper Class
+ * @author Amr Gawish
+ */
 public class ArabicUtilities {
 
-
-	private static final char[][] arabicGlphies=
-	   {{ 1569,65152,65163,65164,65152,3 } ,
-		{ 1570,65153,65153,65154,65154,2 } ,
-		{ 1571,65155,65155,65156,65156,2 } ,
-		{ 1572,65157,65157,65158,65158,2 } ,
-		{ 1573,65159,65159,65160,65160,2 } ,
-		{ 1575,65165,65165,65166,65166,2 } ,
-		{ 1576,65167,65169,65170,65168,4 } ,
-		{ 1577,65171,65171,65172,65172,2 } ,
-		{ 1578,65173,65175,65176,65174,4 } ,
-		{ 1579,65177,65179,65180,65178,4 } ,
-		{ 1580,65181,65183,65184,65182,4 } ,
-		{ 1581,65185,65187,65188,65186,4 } ,
-		{ 1582,65189,65191,65192,65190,4 } ,
-		{ 1583,65193,65193,65194,65194,2 } ,
-		{ 1584,65195,65195,65196,65196,2 } ,
-		{ 1585,65197,65197,65198,65198,2 } ,
-		{ 1586,65199,65199,65200,65200,2 } ,
-		{ 1587,65201,65203,65204,65202,4 } ,
-		{ 1588,65205,65207,65208,65206,4 } ,
-		{ 1589,65209,65211,65212,65210,4 } ,
-		{ 1590,65213,65215,65216,65214,4 } ,
-		{ 1591,65217,65219,65218,65220,4 } ,
-		{ 1592,65221,65223,65222,65222,4 } ,
-		{ 1593,65225,65227,65228,65226,4 } ,
-		{ 1594,65229,65231,65232,65230,4 } ,
-		{ 1601,65233,65235,65236,65234,4 } ,
-		{ 1602,65237,65239,65240,65238,4 } ,
-		{ 1603,65241,65243,65244,65242,4 } ,
-		{ 1604,65245,65247,65248,65246,4 } ,
-		{ 1605,65249,65251,65252,65250,4 } ,
-		{ 1606,65253,65255,65256,65254,4 } ,
-		{ 1607,65257,65259,65260,65258,4 } ,
-		{ 1608,65261,65261,65262,65262,2 } ,
-		{ 1609,65263,65263,65264,65264,2 } ,
-		{ 1574,65161,65161,65162,65162,2 } ,
-		{ 1610,65265,65267,65268,65266,4 } };
-	
-	public static boolean isArabicCharacter(char Target)
-	{
-		int theResult=0;
-		for(int n = 0; n<36;n++)
-		{
-			if(arabicGlphies[n][0]==Target)
-				theResult=arabicGlphies[n][5];
+	/**
+	 * Helper function is to check if the character passed, is Arabic
+	 * @param target The Character to check Against
+	 * @return true if the Character is Arabic letter, otherwise returns false
+	 */
+	private static boolean isArabicCharacter(char target){
+		
+		//Iterate over the 36 Characters in ARABIC_GLPHIES Matrix
+		for(int i = 0; i<36;i++){
+			//Check if the target Character exist in ARABIC_GLPHIES Matrix
+			if(ArabicReshaper.ARABIC_GLPHIES[i][0]==target)
+				return true;
 		}
 		
-		if(theResult>0)
-			return true;
-		else
-			return false;
+		return false;
 	}
 	
-	public static String[] getWords(String text)
-	{
-		return text.split("\\s");
+	/**
+	 * Helper function to split Sentence By Space
+	 * @param sentence the Sentence to Split into Array of Words
+	 * @return Array Of words
+	 */
+	private static String[] getWords(String sentence){
+		return sentence.split("\\s");
 	}
 	
-	public static boolean checkIfWordHasArabicLetters(String word)
-	{
-		for(int i=0;i<word.length();i++)
-		{
+	/**
+	 * Helper function to check if the word has Arabic Letters
+	 * @param word The to check Against
+	 * @return true if the word has Arabic letters, false otherwise
+	 */
+	public static boolean hasArabicLetters(String word){
+		
+		//Iterate over the word to check all the word's letters
+		for(int i=0;i<word.length();i++){
+			
 			if(isArabicCharacter(word.charAt(i)))
 				return true;
 		}
 		return false;
 	}
 	
+	/**
+	 * Helper function to check if the word is all Arabic Word
+	 * @param word The word to check against
+	 * @return true if the word is Arabic Word, false otherwise
+	 */
 	public static boolean isArabicWord(String word){
-		
-		for(int i=0;i<word.length();i++)
-		{
+		//Iterate over the Word
+		for(int i=0;i<word.length();i++){
 			if(!isArabicCharacter(word.charAt(i)))
 				return false;
 		}
 		return true;
 	}
-	
-	private static String[] getArabicWordsFromMixedWord(String word){
-		ArrayList theResult=new ArrayList();
-		String temp="";
-		for(int i=0;i<word.length();i++){
-			
-			if(isArabicCharacter(word.charAt(i)))
-			{
-				temp+=word.charAt(i);
-			}else{
-				if(!temp.equals("")){
-					theResult.add(temp);
-				}
-				temp="";
-			} 
-		}
-		String[] theArabicWords=new String[theResult.size()];
-		for(int i=0;i<theResult.size();i++){
-			theArabicWords[i]=(String)theResult.get(i);
-		}
-		return theArabicWords;
-	}
-	
+
+	/**
+	 * Helper function to split the Mixed Word into words with only Arabic, and English Words
+	 * @param word The Mixed Word
+	 * @return The Array of the Words of each Word may exist inside that word
+	 */
 	private static String[] getWordsFromMixedWord(String word){
-		ArrayList theResult=new ArrayList();
-		String temp="";
+		
+		//The return result of words
+		ArrayList finalWords=new ArrayList();
+		
+		//Temp word to hold the current word
+		String tempWord="";
+		
+		//Iterate over the Word Length
 		for(int i=0;i<word.length();i++){
 			
-			if(isArabicCharacter(word.charAt(i)))
-			{
-				if(!temp.equals("") && !isArabicWord(temp))
-				{
-					theResult.add(temp);
-					temp=""+word.charAt(i);
+			//Check if the Character is Arabic Character
+			if(isArabicCharacter(word.charAt(i))){
+				
+				//Check if the tempWord is not empty, and what left in tempWord is not Arabic Word
+				if(!tempWord.equals("") && !isArabicWord(tempWord)) {
+					
+					//add the Word into the Array
+					finalWords.add(tempWord);
+					
+					//initiate the tempWord again
+					tempWord=""+word.charAt(i);
+					
 				}else{
-					temp+=word.charAt(i);
+					
+					//Not to add the tempWord, but to add the character to the rest of the characters
+					tempWord+=word.charAt(i);
 				}
 					
 			}else{
-				if(!temp.equals("") && isArabicWord(temp)){
-					theResult.add(temp);
-					temp=""+word.charAt(i);
-				}else{
-					temp+=word.charAt(i);
-				}
 				
+				//Check if the tempWord is not empty, and what left in tempWord is Arabic Word
+				if(!tempWord.equals("") && isArabicWord(tempWord)){
+					
+					//add the Word into the Array
+					finalWords.add(tempWord);
+					
+					//initiate the tempWord again
+					tempWord=""+word.charAt(i);
+					
+				}else{
+					
+					//Not to add the tempWord, but to add the character to the rest of the characters
+					tempWord+=word.charAt(i);
+				}
 			} 
 		}
-		String[] theWords=new String[theResult.size()];
-		for(int i=0;i<theResult.size();i++){
-			theWords[i]=(String)theResult.get(i);
-		}
+		
+		String[] theWords=new String[finalWords.size()];
+		theWords=(String[])finalWords.toArray(theWords);
+		
 		return theWords;
 	}
+
 	
-	public static String reshape(String allText)
-	{
+	/**
+	 * The Main Reshaping Function to be Used in Android Program
+	 * @param allText The text to be Reshaped
+	 * @return the Reshaped Text
+	 */
+	public static String reshape(String allText){
+			
+			//get the Words from the Text
 			String[] words=getWords(allText);
-			StringBuffer theResult=new StringBuffer("");
-			for(int i=0;i<words.length;i++)
-			{
-					if(checkIfWordHasArabicLetters(words[i]))
-					{
-						if(isArabicWord(words[i])){
-							ArabicReshaper arabicReshaper=new ArabicReshaper(words[i]);
-							theResult.append(arabicReshaper.getString());
-						}else{
-							String [] allWords=getWordsFromMixedWord(words[i]);
-							for(int j=0;j<allWords.length;j++){
-								ArabicReshaper arabicReshaper=new ArabicReshaper(allWords[j]);
-								theResult.append(arabicReshaper.getString());
-							}
-						}
+			
+			//prepare the Reshaped Text
+			StringBuffer reshapedText=new StringBuffer("");
+			
+			//Iterate over the Words
+			for(int i=0;i<words.length;i++){
+					
+				//Check if the Word has Arabic Letters
+				if(hasArabicLetters(words[i])){
+					
+					//Check if the Whole word is Arabic
+					if(isArabicWord(words[i])){
 						
-					}else{
-						theResult.append(words[i]);
-					}
+						//Initiate the ArabicReshaper functionality
+						ArabicReshaper arabicReshaper=new ArabicReshaper(words[i],true);
+						
+						//Append the Reshaped Arabic Word to the Reshaped Whole Text
+						reshapedText.append(arabicReshaper.getReshapedWord());
+					}else{ //The word has Arabic Letters, but its not an Arabic Word, its a mixed word
+						
+						//Extract words from the words (split Arabic, and English)
+						String [] mixedWords=getWordsFromMixedWord(words[i]);
+						
+						//iterate over mixed Words
+						for(int j=0;j<mixedWords.length;j++){
+							
+							//Initiate the ArabicReshaper functionality
+							ArabicReshaper arabicReshaper=new ArabicReshaper(mixedWords[j],true);
+							
+							//Append the Reshaped Arabic Word to the Reshaped Whole Text
+							reshapedText.append(arabicReshaper.getReshapedWord());
+						}
+					}	
+				}else{//The word doesn't have any Arabic Letters
+					
+					//Just append the word to the whole reshaped Text
+					reshapedText.append(words[i]);
+				}
 				
-				theResult.append(" ");
+				//Append the space to separate between words
+				reshapedText.append(" ");
 			}
-			return theResult.toString();
+			
+			//return the final reshaped whole text
+			return reshapedText.toString();
 	}
 }
