@@ -1,0 +1,25 @@
+		Better Arabic Reshaper - By Amr Gawish
+		=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+==================
+Table of Contents:
+==================
+1. Features
+2. Known Issues
+
+
+=========
+Features:
+=========
+ - Allow Android Platform to natively Read Arabic.
+ - Using the right example, you can reload the text and use it anywhere to read Arabic.
+ - The Main functionality is used into all Arabic SMS Readers and Writers already in Android market.
+ 
+================
+2. Known Issues:
+================
+ - Not fully Arabic Support, Alef-Lam support is recently provided.
+ - Only used for support reading, more functionality may be needed in the Utilities class to support Writing natively.
+ 
+ 
+ Many Thanks to Ahmed Essam Naiem<ahmed-essam@live.com> for providing the main core system.
