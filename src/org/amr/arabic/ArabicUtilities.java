@@ -19,6 +19,7 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.view.Gravity;
 import android.widget.TextView;
 
 /**
@@ -28,6 +29,13 @@ import android.widget.TextView;
  * @author Amr Gawish
  */
 public class ArabicUtilities {
+
+         /**
+	 * the path of teh fonts file must be under assets folder
+	 */
+	private static final String FONTS_LOCATION_PATH = "fonts/DejaVuSans.ttf";
+
+
 
 	/**
 	 * Helper function is to check if the character passed, is Arabic
@@ -220,9 +228,9 @@ public class ArabicUtilities {
 	
 	public static TextView getArabicEnabledTextView(Context context, TextView targetTextView) {
 		//this is a static for testing!
-		Typeface face = Typeface.createFromAsset(context.getAssets(), "fonts/DejaVuSans.ttf");
-
+		Typeface face = Typeface.createFromAsset(context.getAssets(), FONTS_LOCATION_PATH);
 		targetTextView.setTypeface(face);
+		targetTextView.setGravity(Gravity.RIGHT);
 		return targetTextView;
 	}
 }
