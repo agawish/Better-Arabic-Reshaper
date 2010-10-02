@@ -63,7 +63,8 @@ public class ArabicReshaper{
 	 {1573, 65274,65273}
 	};
 
-	
+	public static char[] HARAKATE= {'\u064E', '\u064F', '\u064D', '\u064B', '\u0650'};
+
 	public static char[][] ARABIC_GLPHIES=
 		   {{ 1569,65152,65163,65164,65152,3 } ,
 			{ 1570,65153,65153,65154,65154,2 } ,
