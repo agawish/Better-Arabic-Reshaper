@@ -34,6 +34,7 @@ public class ArabicUtilities {
 	 * the path of teh fonts file must be under assets folder
 	 */
 	private static final String FONTS_LOCATION_PATH = "fonts/DejaVuSans.ttf";
+        static Typeface face ;
 
 
 
@@ -48,6 +49,12 @@ public class ArabicUtilities {
 		for(int i = 0; i < ArabicReshaper.ARABIC_GLPHIES.length;i++){
 			//Check if the target Character exist in ARABIC_GLPHIES Matrix
 			if(ArabicReshaper.ARABIC_GLPHIES[i][0]==target)
+				return true;
+		}
+
+                for(int i = 0; i < ArabicReshaper.HARAKATE.length;i++){
+			//Check if the target Character exist in ARABIC_GLPHIES Matrix
+			if(ArabicReshaper.HARAKATE[i]==target)
 				return true;
 		}
 
@@ -228,7 +235,9 @@ public class ArabicUtilities {
 	
 	public static TextView getArabicEnabledTextView(Context context, TextView targetTextView) {
 		//this is a static for testing!
-		Typeface face = Typeface.createFromAsset(context.getAssets(), FONTS_LOCATION_PATH);
+		if (face == null) {
+			face = Typeface.createFromAsset(context.getAssets(), FONTS_LOCATION_PATH);
+		}
 		targetTextView.setTypeface(face);
 		targetTextView.setGravity(Gravity.RIGHT);
 		return targetTextView;
