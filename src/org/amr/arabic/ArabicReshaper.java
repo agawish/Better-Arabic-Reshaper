@@ -143,6 +143,23 @@ public class ArabicReshaper{
 		return 2;
 	}
 
+        private boolean isHaraka(char target) {
+		
+		return getHaraka(target) > 0;
+	}
+
+	private char getHaraka(char target){
+		//Iterate over the 36 characters in the GLPHIES Matrix
+		for(int n = 0; n<HARAKATE.length;n++)
+		{
+			//Check if the character equals the target character
+			if(HARAKATE[n]==target)
+				//Get the number of Forms that the character has
+				return HARAKATE[n];
+		}
+		return 0;
+	}
+
 
 	/**
 	 * Get LamAlef right Character Presentation of the character
@@ -204,12 +221,48 @@ public class ArabicReshaper{
 	 * @param supportAlefLam To check If to support AlefLam or Not
 	 */
 	public ArabicReshaper(String unshapedWord,boolean supportAlefLam){
+		DecomposedWord decomposedWord = new DecomposedWord(unshapedWord);
 		if(!supportAlefLam) {
-			_returnString=reshapeIt(unshapedWord);
+			_returnString=reshapeIt(new String(decomposedWord.stripedRegularLetters));
 		}else {
-			_returnString=reshapeItWithLamAlef(unshapedWord);
+			_returnString=reshapeItWithLamAlef(new String(decomposedWord.stripedRegularLetters));
 		}
+		_returnString = decomposedWord.reconstructWord(_returnString);
 	}
+
+        class DecomposedWord {
+		char[] stripedHarakates ;
+		int[] harakatesPositions;
+		char[] stripedRegularLetters;
+		int[] lettersPositions;
+		
+		DecomposedWord(String unshapedWord) {
+			int wordLength = unshapedWord.length();
+			int harakatesCount = 0;
+			for(int index = 0; index < wordLength; index++ ) {
+				if (isHaraka(unshapedWord.charAt(index))) {
+					harakatesCount++;
+				}
+			}
+			harakatesPositions = new int[harakatesCount];
+			stripedHarakates = new char[harakatesCount];
+			lettersPositions = new int[wordLength - harakatesCount];
+			stripedRegularLetters = new char[wordLength - harakatesCount];
+			
+			harakatesCount = 0;
+			int letterCount = 0;
+			for(int index = 0; index < unshapedWord.length(); index++ ) {
+				if (isHaraka(unshapedWord.charAt(index))) {
+					harakatesPositions[harakatesCount] = index;
+					stripedHarakates[harakatesCount] = unshapedWord.charAt(index);
+					harakatesCount++;
+				} else {
+					lettersPositions[letterCount] = index;
+					stripedRegularLetters[letterCount] = unshapedWord.charAt(index);
+					letterCount++;
+				}
+			}
+		}
 
 	/**
 	 * Main Reshaping function, Doesn't Support LamAlef
