@@ -264,6 +264,20 @@ public class ArabicReshaper{
 			}
 		}
 
+                String reconstructWord(String reshapedWord) {
+			char[] wordWithHarakates = new char[reshapedWord.length() + stripedHarakates.length];
+			for(int index = 0; index < lettersPositions.length; index++) {
+				wordWithHarakates[lettersPositions[index]] = reshapedWord.charAt(index);
+			}
+			
+			for(int index = 0; index < harakatesPositions.length; index++) {
+				wordWithHarakates[harakatesPositions[index]] = stripedHarakates[index];
+			}
+			return new String(wordWithHarakates);
+			
+		}
+	}
+
 	/**
 	 * Main Reshaping function, Doesn't Support LamAlef
 	 * @param unshapedWord The unReshaped Word to Reshape
