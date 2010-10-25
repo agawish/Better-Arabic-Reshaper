@@ -183,54 +183,54 @@ public class ArabicUtilities {
 	 * @return the Reshaped Text
 	 */
 	public static String reshapeSentence(String sentence){
-			
-			//get the Words from the Text
-			String[] words=getWords(sentence);
+		//get the Words from the Text
+		String[] words=getWords(sentence);
 
-			//prepare the Reshaped Text
-			StringBuffer reshapedText=new StringBuffer("");
+		//prepare the Reshaped Text
+		StringBuffer reshapedText=new StringBuffer("");
 
-			//Iterate over the Words
-			for(int i=0;i<words.length;i++){
+		//Iterate over the Words
+		for(int i=0;i<words.length;i++){
 
-				//Check if the Word has Arabic Letters
-				if(hasArabicLetters(words[i])){
+			//Check if the Word has Arabic Letters
+			if(hasArabicLetters(words[i])){
 
-					//Check if the Whole word is Arabic
-					if(isArabicWord(words[i])){
+				//Check if the Whole word is Arabic
+				if(isArabicWord(words[i])){
+
+					//Initiate the ArabicReshaper functionality
+					ArabicReshaper arabicReshaper = new ArabicReshaper(words[i]);
+					
+
+					//Append the Reshaped Arabic Word to the Reshaped Whole Text
+					reshapedText.append(arabicReshaper.getReshapedWord());
+				}else{ //The word has Arabic Letters, but its not an Arabic Word, its a mixed word
+
+					//Extract words from the words (split Arabic, and English)
+					String [] mixedWords=getWordsFromMixedWord(words[i]);
+
+					//iterate over mixed Words
+					for(int j=0;j<mixedWords.length;j++){
 
 						//Initiate the ArabicReshaper functionality
-						ArabicReshaper arabicReshaper=new ArabicReshaper(words[i],true);
+						ArabicReshaper arabicReshaper=new ArabicReshaper(mixedWords[j]);
 
 						//Append the Reshaped Arabic Word to the Reshaped Whole Text
 						reshapedText.append(arabicReshaper.getReshapedWord());
-					}else{ //The word has Arabic Letters, but its not an Arabic Word, its a mixed word
+					}
+				}	
+			}else{//The word doesn't have any Arabic Letters
 
-						//Extract words from the words (split Arabic, and English)
-						String [] mixedWords=getWordsFromMixedWord(words[i]);
-
-						//iterate over mixed Words
-						for(int j=0;j<mixedWords.length;j++){
-
-							//Initiate the ArabicReshaper functionality
-							ArabicReshaper arabicReshaper=new ArabicReshaper(mixedWords[j],true);
-
-							//Append the Reshaped Arabic Word to the Reshaped Whole Text
-							reshapedText.append(arabicReshaper.getReshapedWord());
-						}
-					}	
-				}else{//The word doesn't have any Arabic Letters
-
-					//Just append the word to the whole reshaped Text
-					reshapedText.append(words[i]);
-				}
-
-				//Append the space to separate between words
-				reshapedText.append(" ");
+				//Just append the word to the whole reshaped Text
+				reshapedText.append(words[i]);
 			}
 
-			//return the final reshaped whole text
-			return reshapedText.toString();
+			//Append the space to separate between words
+			reshapedText.append(" ");
+		}
+
+		//return the final reshaped whole text
+		return reshapedText.toString();
 	}
 	
 	public static TextView getArabicEnabledTextView(Context context, TextView targetTextView) {
