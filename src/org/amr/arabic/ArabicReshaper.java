@@ -26,7 +26,7 @@ public class ArabicReshaper{
 	/**
 	 * The reshaped Word String
 	 */
-	private String _returnString;
+	private String _returnString = "";
 
 
 	/**
@@ -63,46 +63,61 @@ public class ArabicReshaper{
 	 {1573, 65274,65273}
 	};
 
-	public static char[] HARAKATE= {'\u064B', '\u064C', '\u064D','\u064E', '\u064F', '\u0650', '\u0651',
-                     '\u0652', '\u0653', '\u0654', '\u0655', '\u0656'};
+	public static char[] HARAKATE= {		
+		'\u0600','\u0601','\u0602','\u0603','\u0606','\u0607','\u0608','\u0609','\u060A','\u060B','\u060D','\u060E',	
+		'\u0610','\u0611','\u0612','\u0613','\u0614','\u0615','\u0616','\u0617','\u0618','\u0619','\u061A','\u061B','\u061E','\u061F',
+		'\u0621',		
+		'\u063B','\u063C','\u063D','\u063E','\u063F',		
+		'\u0640','\u064B', '\u064C', '\u064D','\u064E', '\u064F',		
+		'\u0650', '\u0651','\u0652', '\u0653', '\u0654', '\u0655', '\u0656','\u0657','\u0658','\u0659','\u065A','\u065B','\u065C','\u065D','\u065E',      
+		'\u0660','\u066A','\u066B','\u066C','\u066F', '\u0670','\u0672',
+		'\u06D4','\u06D5','\u06D6','\u06D7','\u06D8','\u06D9','\u06DA','\u06DB','\u06DC','\u06DF',
+		'\u06E0','\u06E1','\u06E2','\u06E3','\u06E4','\u06E5','\u06E6','\u06E7','\u06E8','\u06E9','\u06EA','\u06EB','\u06EC','\u06ED','\u06EE','\u06EF',
+		'\u06D6','\u06D7','\u06D8','\u06D9','\u06DA','\u06DB','\u06DC','\u06DD','\u06DE','\u06DF',
+		'\u06F0','\u06FD',
+		'\uFE70','\uFE71','\uFE72','\uFE73','\uFE74','\uFE75','\uFE76','\uFE77','\uFE78','\uFE79','\uFE7A','\uFE7B','\uFE7C','\uFE7D','\uFE7E','\uFE7F',
+		'\uFC5E', '\uFC5F', '\uFC60','\uFC61','\uFC62','\uFC63'		
+	};
+
 
 	public static char[][] ARABIC_GLPHIES=
-		   {{ 1569,65152,65163,65164,65152,3 } ,
-			{ 1570,65153,65153,65154,65154,2 } ,
-			{ 1571,65155,65155,65156,65156,2 } ,
-			{ 1572,65157,65157,65158,65158,2 } ,
-			{ 1573,65159,65159,65160,65160,2 } ,
-			{ 1575,65165,65165,65166,65166,2 } ,
-			{ 1576,65167,65169,65170,65168,4 } ,
-			{ 1577,65171,65171,65172,65172,2 } ,
-			{ 1578,65173,65175,65176,65174,4 } ,
-			{ 1579,65177,65179,65180,65178,4 } ,
-			{ 1580,65181,65183,65184,65182,4 } ,
-			{ 1581,65185,65187,65188,65186,4 } ,
-			{ 1582,65189,65191,65192,65190,4 } ,
-			{ 1583,65193,65193,65194,65194,2 } ,
-			{ 1584,65195,65195,65196,65196,2 } ,
-			{ 1585,65197,65197,65198,65198,2 } ,
-			{ 1586,65199,65199,65200,65200,2 } ,
-			{ 1587,65201,65203,65204,65202,4 } ,
-			{ 1588,65205,65207,65208,65206,4 } ,
-			{ 1589,65209,65211,65212,65210,4 } ,
-			{ 1590,65213,65215,65216,65214,4 } ,
-			{ 1591,65217,65219,65218,65220,4 } ,
-			{ 1592,65221,65223,65222,65222,4 } ,
-			{ 1593,65225,65227,65228,65226,4 } ,
-			{ 1594,65229,65231,65232,65230,4 } ,
-			{ 1601,65233,65235,65236,65234,4 } ,
-			{ 1602,65237,65239,65240,65238,4 } ,
-			{ 1603,65241,65243,65244,65242,4 } ,
-			{ 1604,65245,65247,65248,65246,4 } ,
-			{ 1605,65249,65251,65252,65250,4 } ,
-			{ 1606,65253,65255,65256,65254,4 } ,
-			{ 1607,65257,65259,65260,65258,4 } ,
-			{ 1608,65261,65261,65262,65262,2 } ,
-			{ 1609,65263,65263,65264,65264,2 } ,
-			{ 1574,65161,65163,65163,65162,2 } ,
-			{ 1610,65265,65267,65268,65266,4 } };
+		   {{ '\u0622','\uFE81','\uFE81','\uFE82','\uFE82',2 } ,
+			{ '\u0623','\uFE82','\uFE83','\uFE84','\uFE84',2 } ,
+			{ '\u0624','\uFE85','\uFE85','\uFE86','\uFE86',2 } ,
+			{ '\u0625','\uFE87','\uFE87','\uFE88','\uFE88',2 } ,
+			{ '\u0626','\uFE89','\uFE8B','\uFE8C','\uFE8A',4 } ,
+			{ '\u0627','\u0627','\u0627','\uFE8E','\uFE8E',2 } ,
+			{ '\u0628','\uFE8F','\uFE91','\uFE92','\uFE90',4 } ,
+			{ '\u0629','\uFE93','\uFE93','\uFE94','\uFE94',2 } ,
+			{ '\u062A','\uFE95','\uFE97','\uFE98','\uFE96',4 } ,
+			{ '\u062B','\uFE99','\uFE9B','\uFE9C','\uFE9A',4 } ,
+			{ '\u062C','\uFE9D','\uFE9F','\uFEA0','\uFE9E',4 } ,
+			{ '\u062D','\uFEA1','\uFEA3','\uFEA4','\uFEA2',4 } ,
+			{ '\u062E','\uFEA5','\uFEA7','\uFEA8','\uFEA6',4 } ,
+			{ '\u062F','\uFEA9','\uFEA9','\uFEAA','\uFEAA',2 } ,
+			{ '\u0630','\uFEAB','\uFEAB','\uFEAC','\uFEAC',2 } ,
+			{ '\u0631','\uFEAD','\uFEAD','\uFEAE','\uFEAE',2 } ,
+			{ '\u0632','\uFEAF','\uFEAF','\uFEB0','\uFEB0',2 } ,
+			{ '\u0633','\uFEB1','\uFEB3','\uFEB4','\uFEB2',4 } ,
+			{ '\u0634','\uFEB5','\uFEB7','\uFEB8','\uFEB6',4 } ,
+			{ '\u0635','\uFEB9','\uFEBB','\uFEBC','\uFEBA',4 } ,
+			{ '\u0636','\uFEBD','\uFEBF','\uFEC0','\uFEBE',4 } ,
+			{ '\u0637','\uFEC1','\uFEC3','\uFEC2','\uFEC4',4 } ,
+			{ '\u0638','\uFEC5','\uFEC7','\uFEC6','\uFEC6',4 } ,
+			{ '\u0639','\uFEC9','\uFECB','\uFECC','\uFECA',4 } ,
+			{ '\u063A','\uFECD','\uFECF','\uFED0','\uFECE',4 } ,
+			{ '\u0641','\uFED1','\uFED3','\uFED4','\uFED2',4 } ,
+			{ '\u0642','\uFED5','\uFED7','\uFED8','\uFED6',4 } ,
+			{ '\u0643','\uFED9','\uFEDB','\uFEDC','\uFEDA',4 } ,
+			{ '\u0644','\uFEDD','\uFEDF','\uFEE0','\uFEDE',4 } ,
+			{ '\u0645','\uFEE1','\uFEE3','\uFEE4','\uFEE2',4 } ,
+			{ '\u0646','\uFEE5','\uFEE7','\uFEE8','\uFEE6',4 } ,
+			{ '\u0647','\uFEE9','\uFEEB','\uFEEC','\uFEEA',4 } ,
+			{ '\u0648','\uFEED','\uFEED','\uFEEE','\uFEEE',2 } ,
+			{ '\u0649','\uFEEF','\uFEEF','\uFEF0','\uFEF0',2 } ,			
+			{ '\u0671','\u0671','\u0671','\uFB51','\uFB51',2 },
+			{ '\u064A','\uFEF1','\uFEF3','\uFEF4','\uFEF2',4 }
+			};
 
 
 	/**
@@ -133,7 +148,7 @@ public class ArabicReshaper{
 	 */
 	private int getGlphyType(char target){
 		//Iterate over the 36 characters in the GLPHIES Matrix
-		for(int n = 0; n<36;n++)
+		for(int n = 0; n<ARABIC_GLPHIES.length;n++)
 		{
 			//Check if the character equals the target character
 			if(ARABIC_GLPHIES[n][0]==target)
@@ -142,26 +157,27 @@ public class ArabicReshaper{
 		}
 		//Return the number 2 Otherwise
 		return 2;
-	}
+	}	
+	
 
-        private boolean isHaraka(char target) {
+	/**
+	 * returns true if the target character is a haraka
+	 * @param target
+	 * @return
+	 */
+	private boolean isHaraka(char target) {
 		
-		return getHaraka(target) > 0;
-	}
-
-	private char getHaraka(char target){
-		//Iterate over the 36 characters in the GLPHIES Matrix
 		for(int n = 0; n<HARAKATE.length;n++)
 		{
 			//Check if the character equals the target character
 			if(HARAKATE[n]==target)
 				//Get the number of Forms that the character has
-				return HARAKATE[n];
+				return true;
 		}
-		return 0;
+		return false;
 	}
-
-
+	
+	
 	/**
 	 * Get LamAlef right Character Presentation of the character
 	 * @param candidateAlef The letter that is supposed to Alef
@@ -169,7 +185,7 @@ public class ArabicReshaper{
 	 * @param isEndOfWord Is those characters at the end of the Word, to get its right form 
 	 * @return Reshaped character of the LamAlef
 	 */
-	private char getLamAlef(char candidateAlef,char candidateLam,boolean isEndOfWord){
+	private static char getLamAlef(char candidateAlef,char candidateLam,boolean isEndOfWord){
 		//The shift rate, depends if the the end of the word or not!
 		int shiftRate = 1;
 
@@ -204,6 +220,27 @@ public class ArabicReshaper{
 		//return the ReshapedLamAlef
 		return reshapedLamAlef;
 	}
+	
+	/**
+	 * returns the position of lam-alif if found
+	 * @param unshapedWord
+	 * @return
+	 */
+	protected static int detectLamAlif(String unshapedWord) {
+		int wordLength = unshapedWord.length();
+		char [] wordLetters = new char[wordLength];
+
+		//Copy the unreshapedWord to the WordLetters Character Array
+		unshapedWord.getChars(0, wordLength, wordLetters,0 );
+		char lamAlif = 0;
+		for (int index = 0; index < unshapedWord.length() - 1 ; index++) {
+			lamAlif = getLamAlef(wordLetters[index + 1], wordLetters[index], true);
+			if (lamAlif != (char) 0) {
+				return index;
+			}
+		}
+		return -1; 
+	}
 
 
 	/**
@@ -212,31 +249,39 @@ public class ArabicReshaper{
 	 * @param unshapedWord The unShaped Word
 	 */
 	public ArabicReshaper(String unshapedWord){
-		_returnString=reshapeIt(unshapedWord);
-	}
-
-
-	/**
-	 * The Enhanced Arabic Reshaper Constructor with Lam Alef Support
-	 * @param unshapedWord The unShaped Word
-	 * @param supportAlefLam To check If to support AlefLam or Not
-	 */
-	public ArabicReshaper(String unshapedWord,boolean supportAlefLam){
+		// first decompose the word
 		DecomposedWord decomposedWord = new DecomposedWord(unshapedWord);
-		if(!supportAlefLam) {
+		if (ArabicReshaper.detectLamAlif(unshapedWord) < 0 && decomposedWord.stripedRegularLetters.length > 0) {
+			//pass striped letters to be reshaped without tashkil
 			_returnString=reshapeIt(new String(decomposedWord.stripedRegularLetters));
-		}else {
+		} else {
+			//in case teh word contains lam-alif we must trasnform it first because two letters will become one letter
+			//and we would have problem while reconstructing the word.
+			_returnString=reshapeItWithLamAlef(unshapedWord);
+			decomposedWord = new DecomposedWord(_returnString);
 			_returnString=reshapeItWithLamAlef(new String(decomposedWord.stripedRegularLetters));
 		}
 		_returnString = decomposedWord.reconstructWord(_returnString);
 	}
 
-        class DecomposedWord {
+	
+	
+	/**
+	 * Decompose the word into two parts:
+	 * 	- simple letters with their positions 
+	 * 	- Tashkil alone with their position
+	 * 
+	 */
+	class DecomposedWord {
 		char[] stripedHarakates ;
 		int[] harakatesPositions;
 		char[] stripedRegularLetters;
 		int[] lettersPositions;
 		
+		/**
+		 * decompose the word
+		 * @param unshapedWord
+		 */
 		DecomposedWord(String unshapedWord) {
 			int wordLength = unshapedWord.length();
 			int harakatesCount = 0;
@@ -264,16 +309,24 @@ public class ArabicReshaper{
 				}
 			}
 		}
+		
+		/**
+		 * reconstruct the word when the reshaping ahs been done
+		 * @param reshapedWord
+		 * @return
+		 */
+		String reconstructWord(String reshapedWord) {
+			char[] wordWithHarakates = null;
+			wordWithHarakates = new char[reshapedWord.length() + stripedHarakates.length];
+				for(int index = 0; index < lettersPositions.length; index++) {
+					wordWithHarakates[lettersPositions[index]] = reshapedWord.charAt(index);
+				}
 
-                String reconstructWord(String reshapedWord) {
-			char[] wordWithHarakates = new char[reshapedWord.length() + stripedHarakates.length];
-			for(int index = 0; index < lettersPositions.length; index++) {
-				wordWithHarakates[lettersPositions[index]] = reshapedWord.charAt(index);
-			}
+				for(int index = 0; index < harakatesPositions.length; index++) {
+					wordWithHarakates[harakatesPositions[index]] = stripedHarakates[index];
+				}
+
 			
-			for(int index = 0; index < harakatesPositions.length; index++) {
-				wordWithHarakates[harakatesPositions[index]] = stripedHarakates[index];
-			}
 			return new String(wordWithHarakates);
 			
 		}
@@ -288,9 +341,7 @@ public class ArabicReshaper{
 
 		//The reshaped Word to Return
 		StringBuffer reshapedWord=new StringBuffer("");
-
-		//The Word length
-		int wordLength = unshapedWord.length();
+		int wordLength = unshapedWord.length();		
 
 		//The Word Letters
 		char [] wordLetters = new char[wordLength];
@@ -323,12 +374,13 @@ public class ArabicReshaper{
 		}else {
 			//Put the right form of the character, 4 for the last letter in the word
 			reshapedWord.append(getReshapedGlphy(wordLetters[wordLength-1], 4));
-		}
-
+		}		
 		//Return the ReshapedWord
 		return reshapedWord.toString();
 	}
 
+
+	
 
 	/**
 	 * Main Reshaping Function, With LamAlef Support
