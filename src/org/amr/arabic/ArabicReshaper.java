@@ -38,29 +38,29 @@ public class ArabicReshaper{
 		return _returnString;
 	}
 
-	
+
 	public static char DEFINED_CHARACTERS_ORGINAL_ALF_UPPER_MDD = 0x0622;
 
-	
+
 	public static char DEFINED_CHARACTERS_ORGINAL_ALF_UPPER_HAMAZA = 0x0623;
 
-	
+
 	public static char DEFINED_CHARACTERS_ORGINAL_ALF_LOWER_HAMAZA = 0x0625;	
-	
-	
+
+
 	public static char DEFINED_CHARACTERS_ORGINAL_ALF = 0x0627;
 
-	
+
 	public static char DEFINED_CHARACTERS_ORGINAL_LAM	=0x0644;
 
 
 
-	
+
 	public static char[][] LAM_ALEF_GLPHIES=
 	{{15270,65270,65269},
-	 {15271,65272,65271},
-	 {1575, 65276,65275},
-	 {1573, 65274,65273}
+		{15271,65272,65271},
+		{1575, 65276,65275},
+		{1573, 65274,65273}
 	};
 
 	public static char[] HARAKATE= {		
@@ -81,43 +81,48 @@ public class ArabicReshaper{
 
 
 	public static char[][] ARABIC_GLPHIES=
-		   {{ '\u0622','\uFE81','\uFE81','\uFE82','\uFE82',2 } ,
-			{ '\u0623','\uFE82','\uFE83','\uFE84','\uFE84',2 } ,
-			{ '\u0624','\uFE85','\uFE85','\uFE86','\uFE86',2 } ,
-			{ '\u0625','\uFE87','\uFE87','\uFE88','\uFE88',2 } ,
-			{ '\u0626','\uFE89','\uFE8B','\uFE8C','\uFE8A',4 } ,
-			{ '\u0627','\u0627','\u0627','\uFE8E','\uFE8E',2 } ,
-			{ '\u0628','\uFE8F','\uFE91','\uFE92','\uFE90',4 } ,
-			{ '\u0629','\uFE93','\uFE93','\uFE94','\uFE94',2 } ,
-			{ '\u062A','\uFE95','\uFE97','\uFE98','\uFE96',4 } ,
-			{ '\u062B','\uFE99','\uFE9B','\uFE9C','\uFE9A',4 } ,
-			{ '\u062C','\uFE9D','\uFE9F','\uFEA0','\uFE9E',4 } ,
-			{ '\u062D','\uFEA1','\uFEA3','\uFEA4','\uFEA2',4 } ,
-			{ '\u062E','\uFEA5','\uFEA7','\uFEA8','\uFEA6',4 } ,
-			{ '\u062F','\uFEA9','\uFEA9','\uFEAA','\uFEAA',2 } ,
-			{ '\u0630','\uFEAB','\uFEAB','\uFEAC','\uFEAC',2 } ,
-			{ '\u0631','\uFEAD','\uFEAD','\uFEAE','\uFEAE',2 } ,
-			{ '\u0632','\uFEAF','\uFEAF','\uFEB0','\uFEB0',2 } ,
-			{ '\u0633','\uFEB1','\uFEB3','\uFEB4','\uFEB2',4 } ,
-			{ '\u0634','\uFEB5','\uFEB7','\uFEB8','\uFEB6',4 } ,
-			{ '\u0635','\uFEB9','\uFEBB','\uFEBC','\uFEBA',4 } ,
-			{ '\u0636','\uFEBD','\uFEBF','\uFEC0','\uFEBE',4 } ,
-			{ '\u0637','\uFEC1','\uFEC3','\uFEC2','\uFEC4',4 } ,
-			{ '\u0638','\uFEC5','\uFEC7','\uFEC6','\uFEC6',4 } ,
-			{ '\u0639','\uFEC9','\uFECB','\uFECC','\uFECA',4 } ,
-			{ '\u063A','\uFECD','\uFECF','\uFED0','\uFECE',4 } ,
-			{ '\u0641','\uFED1','\uFED3','\uFED4','\uFED2',4 } ,
-			{ '\u0642','\uFED5','\uFED7','\uFED8','\uFED6',4 } ,
-			{ '\u0643','\uFED9','\uFEDB','\uFEDC','\uFEDA',4 } ,
-			{ '\u0644','\uFEDD','\uFEDF','\uFEE0','\uFEDE',4 } ,
-			{ '\u0645','\uFEE1','\uFEE3','\uFEE4','\uFEE2',4 } ,
-			{ '\u0646','\uFEE5','\uFEE7','\uFEE8','\uFEE6',4 } ,
-			{ '\u0647','\uFEE9','\uFEEB','\uFEEC','\uFEEA',4 } ,
-			{ '\u0648','\uFEED','\uFEED','\uFEEE','\uFEEE',2 } ,
-			{ '\u0649','\uFEEF','\uFEEF','\uFEF0','\uFEF0',2 } ,			
-			{ '\u0671','\u0671','\u0671','\uFB51','\uFB51',2 },
-			{ '\u064A','\uFEF1','\uFEF3','\uFEF4','\uFEF2',4 }
-			};
+	{{ '\u0622','\uFE81','\uFE81','\uFE82','\uFE82',2 } ,
+		{ '\u0623','\uFE82','\uFE83','\uFE84','\uFE84',2 } ,
+		{ '\u0624','\uFE85','\uFE85','\uFE86','\uFE86',2 } ,
+		{ '\u0625','\uFE87','\uFE87','\uFE88','\uFE88',2 } ,
+		{ '\u0626','\uFE89','\uFE8B','\uFE8C','\uFE8A',4 } ,
+		{ '\u0627','\u0627','\u0627','\uFE8E','\uFE8E',2 } ,
+		{ '\u0628','\uFE8F','\uFE91','\uFE92','\uFE90',4 } ,
+		{ '\u0629','\uFE93','\uFE93','\uFE94','\uFE94',2 } ,
+		{ '\u062A','\uFE95','\uFE97','\uFE98','\uFE96',4 } ,
+		{ '\u062B','\uFE99','\uFE9B','\uFE9C','\uFE9A',4 } ,
+		{ '\u062C','\uFE9D','\uFE9F','\uFEA0','\uFE9E',4 } ,
+		{ '\u062D','\uFEA1','\uFEA3','\uFEA4','\uFEA2',4 } ,
+		{ '\u062E','\uFEA5','\uFEA7','\uFEA8','\uFEA6',4 } ,
+		{ '\u062F','\uFEA9','\uFEA9','\uFEAA','\uFEAA',2 } ,
+		{ '\u0630','\uFEAB','\uFEAB','\uFEAC','\uFEAC',2 } ,
+		{ '\u0631','\uFEAD','\uFEAD','\uFEAE','\uFEAE',2 } ,
+		{ '\u0632','\uFEAF','\uFEAF','\uFEB0','\uFEB0',2 } ,
+		{ '\u0633','\uFEB1','\uFEB3','\uFEB4','\uFEB2',4 } ,
+		{ '\u0634','\uFEB5','\uFEB7','\uFEB8','\uFEB6',4 } ,
+		{ '\u0635','\uFEB9','\uFEBB','\uFEBC','\uFEBA',4 } ,
+		{ '\u0636','\uFEBD','\uFEBF','\uFEC0','\uFEBE',4 } ,
+		{ '\u0637','\uFEC1','\uFEC3','\uFEC2','\uFEC4',4 } ,
+		{ '\u0638','\uFEC5','\uFEC7','\uFEC6','\uFEC6',4 } ,
+		{ '\u0639','\uFEC9','\uFECB','\uFECC','\uFECA',4 } ,
+		{ '\u063A','\uFECD','\uFECF','\uFED0','\uFECE',4 } ,
+		{ '\u0641','\uFED1','\uFED3','\uFED4','\uFED2',4 } ,
+		{ '\u0642','\uFED5','\uFED7','\uFED8','\uFED6',4 } ,
+		{ '\u0643','\uFED9','\uFEDB','\uFEDC','\uFEDA',4 } ,
+		{ '\u0644','\uFEDD','\uFEDF','\uFEE0','\uFEDE',4 } ,
+		{ '\u0645','\uFEE1','\uFEE3','\uFEE4','\uFEE2',4 } ,
+		{ '\u0646','\uFEE5','\uFEE7','\uFEE8','\uFEE6',4 } ,
+		{ '\u0647','\uFEE9','\uFEEB','\uFEEC','\uFEEA',4 } ,
+		{ '\u0648','\uFEED','\uFEED','\uFEEE','\uFEEE',2 } ,
+		{ '\u0649','\uFEEF','\uFEEF','\uFEF0','\uFEF0',2 } ,			
+		{ '\u0671','\u0671','\u0671','\uFB51','\uFB51',2 },
+		{ '\u064A','\uFEF1','\uFEF3','\uFEF4','\uFEF2',4 },
+		{ '\u066E','\uFBE4','\uFBE8','\uFBE9','\uFBE5',4 },         
+		{ '\u0671','\u0671','\u0671','\uFB51','\uFB51',2 },       
+		{'\u06AA','\uFB8E','\uFB90','\uFB91','\uFB8F',4 },       
+		{ '\u06C1','\uFBA6','\uFBA8','\uFEA9','\uFBA7',4 },      
+		{'\u06E4','\u06E4','\u06E4','\u06E4','\uFEEE',2 }
+	};
 
 
 	/**
@@ -158,7 +163,7 @@ public class ArabicReshaper{
 		//Return the number 2 Otherwise
 		return 2;
 	}	
-	
+
 
 	/**
 	 * returns true if the target character is a haraka
@@ -166,7 +171,7 @@ public class ArabicReshaper{
 	 * @return
 	 */
 	private boolean isHaraka(char target) {
-		
+
 		for(int n = 0; n<HARAKATE.length;n++)
 		{
 			//Check if the character equals the target character
@@ -176,13 +181,16 @@ public class ArabicReshaper{
 		}
 		return false;
 	}
-	
+
 	private String replaceLamAlef(String unshapedWord) {
 		int wordLength = unshapedWord.length();
 		char [] wordLetters = new char[wordLength];	
 		unshapedWord.getChars(0, wordLength, wordLetters,0 );		
-
-		for (int index = 0; index < wordLetters.length - 1 ; index++) {
+		char letterBefore = 0;
+		for (int index = 0; index < wordLetters.length - 1 ; index++) {			
+			if(!isHaraka(wordLetters[index]) && (int)DEFINED_CHARACTERS_ORGINAL_LAM !=(int)wordLetters[index]) {
+				letterBefore = wordLetters[index];
+			}
 			if((int)DEFINED_CHARACTERS_ORGINAL_LAM ==(int)wordLetters[index]){
 				char candidateLam = wordLetters[index];
 				int lamPosition = index;
@@ -193,7 +201,7 @@ public class ArabicReshaper{
 				}
 				if (harakaPosition < wordLetters.length) {
 					char lamAlef = 0;
-					if (lamPosition > 0 && getGlphyType(wordLetters[lamPosition - 1]) > 2) 
+					if (lamPosition > 0 && getGlphyType(letterBefore) > 2) 
 						lamAlef = getLamAlef(wordLetters[harakaPosition], candidateLam, false);
 					else {
 						lamAlef = getLamAlef(wordLetters[harakaPosition], candidateLam, true);
@@ -211,7 +219,7 @@ public class ArabicReshaper{
 
 		return unshapedWord.trim();
 	}
-	
+
 	/**
 	 * Get LamAlef right Character Presentation of the character
 	 * @param candidateAlef The letter that is supposed to Alef
@@ -249,7 +257,7 @@ public class ArabicReshaper{
 			if((int)candidateAlef ==(int)DEFINED_CHARACTERS_ORGINAL_ALF){
 				reshapedLamAlef = LAM_ALEF_GLPHIES[2][shiftRate];
 			}			
-			
+
 		}
 		//return the ReshapedLamAlef
 		return reshapedLamAlef;
@@ -268,8 +276,8 @@ public class ArabicReshaper{
 		_returnString = decomposedWord.reconstructWord(_returnString);
 	}
 
-	
-	
+
+
 	/**
 	 * Decompose the word into two parts:
 	 * 	- simple letters with their positions 
@@ -281,7 +289,7 @@ public class ArabicReshaper{
 		int[] harakatesPositions;
 		char[] stripedRegularLetters;
 		int[] lettersPositions;
-		
+
 		/**
 		 * decompose the word
 		 * @param unshapedWord
@@ -298,7 +306,7 @@ public class ArabicReshaper{
 			stripedHarakates = new char[harakatesCount];
 			lettersPositions = new int[wordLength - harakatesCount];
 			stripedRegularLetters = new char[wordLength - harakatesCount];
-			
+
 			harakatesCount = 0;
 			int letterCount = 0;
 			for(int index = 0; index < unshapedWord.length(); index++ ) {
@@ -313,7 +321,7 @@ public class ArabicReshaper{
 				}
 			}
 		}
-		
+
 		/**
 		 * reconstruct the word when the reshaping ahs been done
 		 * @param reshapedWord
@@ -322,17 +330,17 @@ public class ArabicReshaper{
 		String reconstructWord(String reshapedWord) {
 			char[] wordWithHarakates = null;
 			wordWithHarakates = new char[reshapedWord.length() + stripedHarakates.length];
-				for(int index = 0; index < lettersPositions.length; index++) {
-					wordWithHarakates[lettersPositions[index]] = reshapedWord.charAt(index);
-				}
+			for(int index = 0; index < lettersPositions.length; index++) {
+				wordWithHarakates[lettersPositions[index]] = reshapedWord.charAt(index);
+			}
 
-				for(int index = 0; index < harakatesPositions.length; index++) {
-					wordWithHarakates[harakatesPositions[index]] = stripedHarakates[index];
-				}
+			for(int index = 0; index < harakatesPositions.length; index++) {
+				wordWithHarakates[harakatesPositions[index]] = stripedHarakates[index];
+			}
 
-			
+
 			return new String(wordWithHarakates);
-			
+
 		}
 	}
 
@@ -361,14 +369,14 @@ public class ArabicReshaper{
 		//iteration from the second till the second to last
 		for(int i=1;i<wordLength-1;i++){
 			int beforeLast=i-1;
-				//Check if the Letter Before Last has only 2 Forms, for the current Letter to be as a start for a new Word!
-				if(getGlphyType(wordLetters[beforeLast])==2){ //checking if it's only has 2 shapes
-					//If the letter has only 2 shapes, then it doesnt matter which position it is, It'll be always the second form
-					reshapedWord.append(getReshapedGlphy(wordLetters[i], 2));
-				}else {
-					//Then it should be in the middle which should be placed in its right form [3]
-					reshapedWord.append(getReshapedGlphy(wordLetters[i], 3));
-				}
+			//Check if the Letter Before Last has only 2 Forms, for the current Letter to be as a start for a new Word!
+			if(getGlphyType(wordLetters[beforeLast])==2){ //checking if it's only has 2 shapes
+				//If the letter has only 2 shapes, then it doesnt matter which position it is, It'll be always the second form
+				reshapedWord.append(getReshapedGlphy(wordLetters[i], 2));
+			}else {
+				//Then it should be in the middle which should be placed in its right form [3]
+				reshapedWord.append(getReshapedGlphy(wordLetters[i], 3));
+			}
 		}
 
 		//check for the last letter Before last has 2 forms, that means that the last Letter will be alone.
@@ -384,5 +392,5 @@ public class ArabicReshaper{
 		//Return the ReshapedWord
 		return reshapedWord.toString();
 	}
-	
+
 }
