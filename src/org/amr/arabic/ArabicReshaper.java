@@ -181,27 +181,30 @@ public class ArabicReshaper{
 		int wordLength = unshapedWord.length();
 		char [] wordLetters = new char[wordLength];	
 		unshapedWord.getChars(0, wordLength, wordLetters,0 );		
-		
+
 		for (int index = 0; index < wordLetters.length - 1 ; index++) {
 			if((int)DEFINED_CHARACTERS_ORGINAL_LAM ==(int)wordLetters[index]){
 				char candidateLam = wordLetters[index];
 				int lamPosition = index;
 				int harakaPosition = lamPosition + 1;
-				while (isHaraka(wordLetters[harakaPosition])) {
+				
+				while (harakaPosition < wordLetters.length && isHaraka(wordLetters[harakaPosition])) {
 					harakaPosition++;
 				}
-				char lamAlef = 0;
-				if (lamPosition > 0 && getGlphyType(wordLetters[lamPosition - 1]) > 2) 
-					lamAlef = getLamAlef(wordLetters[harakaPosition], candidateLam, false);
-				else {
-					lamAlef = getLamAlef(wordLetters[harakaPosition], candidateLam, true);
-				}
-				if (lamAlef != (char) 0){
-					wordLetters[lamPosition] = lamAlef;
-					wordLetters[harakaPosition] = ' ';
+				if (harakaPosition < wordLetters.length) {
+					char lamAlef = 0;
+					if (lamPosition > 0 && getGlphyType(wordLetters[lamPosition - 1]) > 2) 
+						lamAlef = getLamAlef(wordLetters[harakaPosition], candidateLam, false);
+					else {
+						lamAlef = getLamAlef(wordLetters[harakaPosition], candidateLam, true);
+					}
+					if (lamAlef != (char) 0){
+						wordLetters[lamPosition] = lamAlef;
+						wordLetters[harakaPosition] = ' ';
+					}
 				}
 			}
-			
+
 		}
 		unshapedWord = new String(wordLetters);
 		unshapedWord = unshapedWord.replaceAll(" ", "");
