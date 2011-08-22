@@ -16,6 +16,7 @@ package org.amr.arabic;
  *
  * */
 import java.util.ArrayList;
+import java.util.List;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -112,7 +113,7 @@ public class ArabicUtilities {
 	private static String[] getWordsFromMixedWord(String word){
 
 		//The return result of words
-		ArrayList finalWords=new ArrayList();
+		List<String> finalWords = new ArrayList<String>();
 
 		//Temp word to hold the current word
 		String tempWord="";
