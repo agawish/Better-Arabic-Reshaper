@@ -82,7 +82,7 @@ public class ArabicReshaper{
 
 	public static char[][] ARABIC_GLPHIES=
 	{{ '\u0622','\uFE81','\uFE81','\uFE82','\uFE82',2 } ,
-		{ '\u0623','\uFE82','\uFE83','\uFE84','\uFE84',2 } ,
+		{ '\u0623','\uFE83','\uFE83','\uFE84','\uFE84',2 } ,
 		{ '\u0624','\uFE85','\uFE85','\uFE86','\uFE86',2 } ,
 		{ '\u0625','\uFE87','\uFE87','\uFE88','\uFE88',2 } ,
 		{ '\u0626','\uFE89','\uFE8B','\uFE8C','\uFE8A',4 } ,
@@ -102,8 +102,8 @@ public class ArabicReshaper{
 		{ '\u0634','\uFEB5','\uFEB7','\uFEB8','\uFEB6',4 } ,
 		{ '\u0635','\uFEB9','\uFEBB','\uFEBC','\uFEBA',4 } ,
 		{ '\u0636','\uFEBD','\uFEBF','\uFEC0','\uFEBE',4 } ,
-		{ '\u0637','\uFEC1','\uFEC3','\uFEC2','\uFEC4',4 } ,
-		{ '\u0638','\uFEC5','\uFEC7','\uFEC6','\uFEC6',4 } ,
+		{ '\u0637','\uFEC1','\uFEC3','\uFEC4','\uFEC2',4 } ,
+		{ '\u0638','\uFEC5','\uFEC7','\uFEC8','\uFEC6',4 } ,
 		{ '\u0639','\uFEC9','\uFECB','\uFECC','\uFECA',4 } ,
 		{ '\u063A','\uFECD','\uFECF','\uFED0','\uFECE',4 } ,
 		{ '\u0641','\uFED1','\uFED3','\uFED4','\uFED2',4 } ,
