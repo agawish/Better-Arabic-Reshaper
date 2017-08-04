@@ -1,4 +1,4 @@
-# Better Arabic Reshaper - By [Amr Gawish](mailto:myself@amr-gawish.com)
+# Better Arabic Reshaper
 
 
 
